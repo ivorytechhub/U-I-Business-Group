@@ -33,14 +33,12 @@
       overflow-x: hidden;
     }
 
-    /* ── SCROLLBAR ── */
+    /* SCROLLBAR */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--dark); }
     ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
 
-    /* ══════════════════════════════
-       NAVBAR
-    ══════════════════════════════ */
+    /* NAVBAR */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
@@ -60,7 +58,6 @@
       display: flex; align-items: center; gap: 12px; text-decoration: none;
     }
 
-    /* LOGO CONTAINER - renders the SVG logo inline */
     .logo-icon {
       width: 70px; height: 70px;
       background: var(--white);
@@ -70,9 +67,7 @@
       flex-shrink: 0;
     }
 
-    .logo-icon svg {
-      width: 100%; height: 100%;
-    }
+    .logo-icon img { width: 100%; height: 100%; object-fit: contain; }
 
     .logo-text-wrap { display: flex; flex-direction: column; line-height: 1.1; }
     .logo-text-wrap .brand { font-size: 1rem; font-weight: 800; color: var(--white); letter-spacing: 0.5px; }
@@ -117,9 +112,21 @@
       border-radius: 2px; transition: all 0.3s;
     }
 
-    /* ══════════════════════════════
-       HERO
-    ══════════════════════════════ */
+    /* FIXED: Mobile nav open */
+    nav.open .nav-links {
+      display: flex; flex-direction: column;
+      position: absolute; top: 80px; left: 0; right: 0;
+      background: rgba(10,15,30,0.98);
+      padding: 20px 5%; gap: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Hamburger animation when open */
+    nav.open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.open .hamburger span:nth-child(2) { opacity: 0; }
+    nav.open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* HERO */
     .hero {
       min-height: 100vh;
       background: var(--gradient-dark);
@@ -138,7 +145,6 @@
     .circle-1 { width: 600px; height: 600px; top: -150px; right: -100px; }
     .circle-2 { width: 400px; height: 400px; bottom: -100px; left: -50px; }
 
-    /* Animated grid */
     .hero-grid {
       position: absolute; inset: 0;
       background-image:
@@ -241,13 +247,13 @@
       padding: 10px;
       box-shadow: 0 10px 40px rgba(26,86,219,0.3);
     }
-    .hero-card-logo svg { width: 100%; height: 100%; }
+    .hero-card-logo img { width: 100%; height: 100%; object-fit: contain; }
 
     .hero-card h3 {
       text-align: center; color: var(--white);
       font-size: 1.2rem; font-weight: 700; margin-bottom: 6px;
     }
-    .hero-card p {
+    .hero-card > p {
       text-align: center; color: var(--accent);
       font-size: 0.75rem; letter-spacing: 2px;
       text-transform: uppercase; margin-bottom: 30px;
@@ -272,7 +278,6 @@
     }
     .hero-stat .lbl { font-size: 0.65rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
 
-    /* floating dots on card */
     .dot-float {
       position: absolute; border-radius: 50%;
       animation: floatDot 4s ease-in-out infinite;
@@ -282,11 +287,8 @@
     .dot-float.d3 { width:8px;height:8px; background:#fff; top:40px;right:-4px; animation-delay:0.7s; }
     @keyframes floatDot { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
 
-    /* ══════════════════════════════
-       SECTION COMMONS
-    ══════════════════════════════ */
+    /* SECTION COMMONS */
     section { padding: 90px 5%; }
-
     .container { max-width: 1200px; margin: 0 auto; }
 
     .section-tag {
@@ -316,9 +318,7 @@
       max-width: 580px;
     }
 
-    /* ══════════════════════════════
-       TICKER / MARQUEE
-    ══════════════════════════════ */
+    /* TICKER */
     .ticker {
       background: var(--gradient);
       padding: 14px 0; overflow: hidden;
@@ -339,9 +339,7 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* ══════════════════════════════
-       ABOUT
-    ══════════════════════════════ */
+    /* ABOUT */
     #about { background: var(--light); }
 
     .about-grid {
@@ -349,9 +347,7 @@
       gap: 70px; align-items: center;
     }
 
-    .about-img-wrap {
-      position: relative;
-    }
+    .about-img-wrap { position: relative; }
 
     .about-main-box {
       background: var(--gradient-dark);
@@ -378,7 +374,7 @@
       position: relative; z-index: 1;
       margin-bottom: 20px;
     }
-    .about-logo-big svg { width: 100%; height: 100%; }
+    .about-logo-big img { width: 100%; height: 100%; object-fit: contain; }
 
     .about-main-box h3 {
       color: var(--white); font-size: 1.1rem;
@@ -429,9 +425,7 @@
       font-size: 0.65rem; flex-shrink: 0; margin-top: 2px;
     }
 
-    /* ══════════════════════════════
-       SERVICES
-    ══════════════════════════════ */
+    /* SERVICES */
     #services { background: var(--white); }
 
     .services-header { text-align: center; margin-bottom: 60px; }
@@ -493,9 +487,7 @@
     }
     .service-card:hover .learn-more { gap: 10px; }
 
-    /* ══════════════════════════════
-       WHY CHOOSE US
-    ══════════════════════════════ */
+    /* WHY CHOOSE US */
     #why {
       background: var(--gradient-dark);
       position: relative; overflow: hidden;
@@ -564,9 +556,7 @@
     }
     .why-stat-card p { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin-top: 6px; }
 
-    /* ══════════════════════════════
-       PROCESS
-    ══════════════════════════════ */
+    /* PROCESS */
     #process { background: var(--light); }
 
     .process-header { text-align: center; margin-bottom: 60px; }
@@ -607,9 +597,7 @@
     .process-step h4 { font-size: 1rem; font-weight: 700; color: var(--dark2); margin-bottom: 10px; }
     .process-step p { font-size: 0.85rem; color: var(--gray); line-height: 1.7; }
 
-    /* ══════════════════════════════
-       CONTACT
-    ══════════════════════════════ */
+    /* CONTACT */
     #contact { background: var(--white); }
 
     .contact-grid {
@@ -624,7 +612,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .contact-info p { color: var(--gray); line-height: 1.8; margin-bottom: 36px; }
+    .contact-info > p { color: var(--gray); line-height: 1.8; margin-bottom: 36px; }
 
     .contact-items { display: flex; flex-direction: column; gap: 20px; }
     .contact-item {
@@ -698,18 +686,17 @@
       transform: translateY(-3px);
       box-shadow: 0 15px 40px rgba(26,86,219,0.4);
     }
+    .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
     .form-success {
       display: none; text-align: center; padding: 30px;
       color: #059669;
     }
-    .form-success i { font-size: 3rem; margin-bottom: 16px; }
+    .form-success i { font-size: 3rem; margin-bottom: 16px; display: block; }
     .form-success h4 { font-size: 1.2rem; font-weight: 700; }
     .form-success p { color: var(--gray); margin-top: 8px; }
 
-    /* ══════════════════════════════
-       FOOTER
-    ══════════════════════════════ */
+    /* FOOTER */
     footer {
       background: var(--dark);
       padding: 70px 5% 30px;
@@ -730,13 +717,13 @@
       border-radius: 10px; display: flex; align-items: center;
       justify-content: center; padding: 6px; flex-shrink: 0;
     }
-    .foot-logo-icon svg { width: 100%; height: 100%; }
+    .foot-logo-icon img { width: 100%; height: 100%; object-fit: contain; }
 
     .foot-brand-text .brand { font-size: 0.95rem; font-weight: 800; color: var(--white); }
     .foot-brand-text .brand span { color: var(--accent); }
     .foot-brand-text .sub { font-size: 0.6rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; }
 
-    .footer-brand p {
+    .footer-brand > p {
       color: rgba(255,255,255,0.5); font-size: 0.88rem;
       line-height: 1.8; margin-bottom: 24px; max-width: 300px;
     }
@@ -781,9 +768,7 @@
     .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 0.82rem; }
     .footer-bottom p span { color: var(--accent); }
 
-    /* ══════════════════════════════
-       FLOATING WHATSAPP
-    ══════════════════════════════ */
+    /* FLOATING WHATSAPP */
     .whatsapp-float {
       position: fixed; bottom: 30px; right: 30px;
       z-index: 9999;
@@ -791,6 +776,7 @@
     }
 
     .wa-tooltip {
+      position: relative;
       background: var(--white); color: var(--dark2);
       padding: 10px 16px; border-radius: 12px;
       font-size: 0.82rem; font-weight: 600;
@@ -828,9 +814,7 @@
       50% { box-shadow: 0 8px 50px rgba(37,211,102,0.7), 0 0 0 12px rgba(37,211,102,0.1); }
     }
 
-    /* ══════════════════════════════
-       ANIMATIONS
-    ══════════════════════════════ */
+    /* ANIMATIONS */
     @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px);} to{opacity:1;transform:translateY(0);} }
     @keyframes fadeInLeft { from{opacity:0;transform:translateX(-30px);} to{opacity:1;transform:translateX(0);} }
     @keyframes fadeInRight { from{opacity:0;transform:translateX(30px);} to{opacity:1;transform:translateX(0);} }
@@ -842,9 +826,7 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ══════════════════════════════
-       MOBILE
-    ══════════════════════════════ */
+    /* MOBILE */
     @media (max-width: 900px) {
       .hero-content { grid-template-columns: 1fr; text-align: center; }
       .hero-btns { justify-content: center; }
@@ -869,26 +851,15 @@
       .contact-form-wrap { padding: 28px 20px; }
       .wa-btn { width: 54px; height: 54px; font-size: 1.5rem; }
     }
-
-    /* mobile nav open */
-    nav.open .nav-links {
-      display: flex; flex-direction: column;
-      position: absolute; top: 80px; left: 0; right: 0;
-      background: rgba(10,15,30,0.98);
-      padding: 20px 5%; gap: 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════
-     NAVIGATION
-═══════════════════════════════════════ -->
+<!-- NAVIGATION -->
 <nav id="navbar">
   <a href="#home" class="nav-logo">
     <div class="logo-icon">
-      <img src="logo.jpeg" alt="U&I Business Group Ltd Logo" style="width: 100%; height: 100%; object-fit: contain;">
+      <img src="logo.jpeg" alt="U&I Business Group Ltd Logo"/>
     </div>
     <div class="logo-text-wrap">
       <span class="brand">U&I <span>BUSINESS</span> GROUP LTD</span>
@@ -896,13 +867,13 @@
     </div>
   </a>
 
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" onclick="closeNav()">Home</a></li>
+    <li><a href="#about" onclick="closeNav()">About</a></li>
+    <li><a href="#services" onclick="closeNav()">Services</a></li>
+    <li><a href="#why" onclick="closeNav()">Why Us</a></li>
+    <li><a href="#process" onclick="closeNav()">Process</a></li>
+    <li><a href="#contact" class="nav-cta" onclick="closeNav()">Get in Touch</a></li>
   </ul>
 
   <div class="hamburger" id="hamburger" onclick="toggleNav()">
@@ -910,9 +881,7 @@
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════════
-     HERO
-═══════════════════════════════════════ -->
+<!-- HERO -->
 <section id="home" class="hero">
   <div class="hero-bg-shapes">
     <div class="circle circle-1"></div>
@@ -945,20 +914,7 @@
         <div class="dot-float d3"></div>
 
         <div class="hero-card-logo">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="15" width="80" height="55" rx="6" fill="none" stroke="#1a56db" stroke-width="6"/>
-            <rect x="16" y="21" width="68" height="43" rx="3" fill="#e8f0fe"/>
-            <circle cx="35" cy="35" r="5" fill="none" stroke="#1a56db" stroke-width="3"/>
-            <circle cx="65" cy="35" r="5" fill="none" stroke="#1a56db" stroke-width="3"/>
-            <circle cx="50" cy="52" r="5" fill="none" stroke="#1a56db" stroke-width="3"/>
-            <line x1="40" y1="35" x2="60" y2="35" stroke="#1a56db" stroke-width="2.5"/>
-            <line x1="35" y1="40" x2="35" y2="47" stroke="#1a56db" stroke-width="2.5"/>
-            <line x1="35" y1="47" x2="45" y2="52" stroke="#1a56db" stroke-width="2.5"/>
-            <line x1="65" y1="40" x2="65" y2="47" stroke="#1a56db" stroke-width="2.5"/>
-            <line x1="65" y1="47" x2="55" y2="52" stroke="#1a56db" stroke-width="2.5"/>
-            <rect x="43" y="70" width="14" height="8" rx="2" fill="#1a56db"/>
-            <rect x="33" y="78" width="34" height="5" rx="2.5" fill="#1a56db"/>
-          </svg>
+          <img src="logo.jpeg" alt="U&I Business Group Ltd"/>
         </div>
 
         <h3>U&I Business Group Ltd</h3>
@@ -994,7 +950,6 @@
     <div class="ticker-item"><i class="fas fa-check-circle"></i> IT Consulting</div>
     <div class="ticker-item"><i class="fas fa-check-circle"></i> Hardware Supply</div>
     <div class="ticker-item"><i class="fas fa-check-circle"></i> Technical Support</div>
-    <!-- duplicate for seamless loop -->
     <div class="ticker-item"><i class="fas fa-check-circle"></i> IT Infrastructure Setup</div>
     <div class="ticker-item"><i class="fas fa-check-circle"></i> Network Solutions</div>
     <div class="ticker-item"><i class="fas fa-check-circle"></i> Software Development</div>
@@ -1006,29 +961,14 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     ABOUT
-═══════════════════════════════════════ -->
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
         <div class="about-main-box">
           <div class="about-logo-big">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <rect x="10" y="15" width="80" height="55" rx="6" fill="none" stroke="#1a56db" stroke-width="6"/>
-              <rect x="16" y="21" width="68" height="43" rx="3" fill="#e8f0fe"/>
-              <circle cx="35" cy="35" r="5" fill="none" stroke="#1a56db" stroke-width="3"/>
-              <circle cx="65" cy="35" r="5" fill="none" stroke="#1a56db" stroke-width="3"/>
-              <circle cx="50" cy="52" r="5" fill="none" stroke="#1a56db" stroke-width="3"/>
-              <line x1="40" y1="35" x2="60" y2="35" stroke="#1a56db" stroke-width="2.5"/>
-              <line x1="35" y1="40" x2="35" y2="47" stroke="#1a56db" stroke-width="2.5"/>
-              <line x1="35" y1="47" x2="45" y2="52" stroke="#1a56db" stroke-width="2.5"/>
-              <line x1="65" y1="40" x2="65" y2="47" stroke="#1a56db" stroke-width="2.5"/>
-              <line x1="65" y1="47" x2="55" y2="52" stroke="#1a56db" stroke-width="2.5"/>
-              <rect x="43" y="70" width="14" height="8" rx="2" fill="#1a56db"/>
-              <rect x="33" y="78" width="34" height="5" rx="2.5" fill="#1a56db"/>
-            </svg>
+            <img src="logo.jpeg" alt="U&I Business Group Ltd"/>
           </div>
           <h3>U&I Business Group Ltd</h3>
           <p>IT Systems · Gasabo, Kigali</p>
@@ -1081,9 +1021,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SERVICES
-═══════════════════════════════════════ -->
+<!-- SERVICES -->
 <section id="services">
   <div class="container">
     <div class="services-header reveal">
@@ -1138,16 +1076,14 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     WHY CHOOSE US
-═══════════════════════════════════════ -->
+<!-- WHY CHOOSE US -->
 <section id="why">
   <div class="container">
     <div class="why-grid">
       <div class="why-left reveal">
         <div class="section-tag" style="color:var(--accent);">Why Choose Us</div>
         <h2 class="section-title" style="color:var(--white);">The U&I <span>Advantage</span></h2>
-        <p class="section-sub">We don't just fix IT problems — we build long-term technology partnerships that fuel your business growth.</p>
+        <p class="section-sub" style="color:rgba(255,255,255,0.65);">We don't just fix IT problems — we build long-term technology partnerships that fuel your business growth.</p>
 
         <div class="why-features">
           <div class="why-feat">
@@ -1196,9 +1132,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     PROCESS
-═══════════════════════════════════════ -->
+<!-- PROCESS -->
 <section id="process">
   <div class="container">
     <div class="process-header reveal">
@@ -1232,9 +1166,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     CONTACT
-═══════════════════════════════════════ -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="contact-grid">
@@ -1278,7 +1210,9 @@
         </div>
       </div>
 
-      <!-- CONTACT FORM — submits to info@uibgltd.com via Formspree -->
+      <!-- CONTACT FORM -->
+      <!-- ACTION: Replace xyzabcde below with your real Formspree form ID -->
+      <!-- Get your free form ID at https://formspree.io -->
       <div class="contact-form-wrap reveal">
         <h3>📩 Send Us a Message</h3>
 
@@ -1289,11 +1223,9 @@
         </div>
 
         <form id="contactForm"
-              action="https://formspree.io/f/YOUR_FORM_ID"
-              method="POST"
-              onsubmit="handleSubmit(event)">
+              action="https://formspree.io/f/xyzabcde"
+              method="POST">
 
-          <!-- Formspree hidden field to redirect replies to your email -->
           <input type="hidden" name="_replyto" value="info@uibgltd.com"/>
           <input type="hidden" name="_subject" value="New Inquiry — U&I Business Group Ltd Website"/>
 
@@ -1346,25 +1278,23 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#home" class="foot-logo">
           <div class="foot-logo-icon">
-            <img src="logo.jpeg" alt="U&I Business Group Ltd Logo" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="logo.jpeg" alt="U&I Business Group Ltd Logo"/>
           </div>
           <div class="foot-brand-text">
-            <span class="brand">U&I <span>BUSINESS</span> GROUP LTD</span>
-            <span class="sub">IT Systems</span>
+            <div class="brand">U&I <span>BUSINESS</span> GROUP LTD</div>
+            <div class="sub">IT Systems</div>
           </div>
         </a>
         <p>Your trusted technology partner in Rwanda. We deliver smart, reliable, and scalable IT solutions to power your business forward.</p>
         <div class="social-links">
-          <a href="https://wa.me/250783693333" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://wa.me/250783693333" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           <a href="mailto:info@uibgltd.com" title="Email"><i class="fas fa-envelope"></i></a>
           <a href="tel:+250783693333" title="Call Us"><i class="fas fa-phone"></i></a>
           <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -1401,9 +1331,7 @@
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════
-     FLOATING WHATSAPP BUTTON
-═══════════════════════════════════════ -->
+<!-- FLOATING WHATSAPP BUTTON -->
 <div class="whatsapp-float">
   <div class="wa-tooltip">Chat with us on WhatsApp 👋</div>
   <a href="https://wa.me/250783693333?text=Hello%20U%26I%20Business%20Group%2C%20I%20would%20like%20to%20inquire%20about%20your%20IT%20services."
@@ -1415,25 +1343,24 @@
   </a>
 </div>
 
-<!-- ═══════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════ -->
+<!-- JAVASCRIPT -->
 <script>
-  /* ── Navbar scroll effect ── */
+  /* Navbar scroll effect */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  /* ── Mobile nav toggle ── */
+  /* Mobile nav toggle — FIXED selector */
   function toggleNav() {
     navbar.classList.toggle('open');
   }
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => navbar.classList.remove('open'));
-  });
 
-  /* ── Scroll reveal ── */
+  function closeNav() {
+    navbar.classList.remove('open');
+  }
+
+  /* Scroll reveal */
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -1445,54 +1372,53 @@
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
 
-  /* ── Form submission handler ── */
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const form = document.getElementById('contactForm');
-    const btn = document.getElementById('submitBtn');
-    const successDiv = document.getElementById('formSuccess');
+  /* Form submission handler */
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn   = document.getElementById('submitBtn');
+  const successDiv  = document.getElementById('formSuccess');
 
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    btn.disabled = true;
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
 
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch(contactForm.action, {
         method: 'POST',
-        body: new FormData(form),
+        body: new FormData(contactForm),
         headers: { 'Accept': 'application/json' }
       });
 
       if (res.ok) {
-        form.style.display = 'none';
-        successDiv.style.display = 'block';
+        contactForm.style.display = 'none';
+        successDiv.style.display  = 'block';
       } else {
-        btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error — Try Again';
-        btn.disabled = false;
-        setTimeout(() => {
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-        }, 3000);
+        throw new Error('Server error');
       }
-    } catch {
-      /* Fallback: open mailto if network fails */
-      const fname = document.getElementById('fname').value;
-      const lname = document.getElementById('lname').value;
-      const email = document.getElementById('email').value;
+    } catch (err) {
+      /* Fallback: open mailto if Formspree fails or ID not yet set */
+      const fname   = document.getElementById('fname').value;
+      const lname   = document.getElementById('lname').value;
+      const email   = document.getElementById('email').value;
       const service = document.getElementById('service').value;
       const message = document.getElementById('message').value;
-      const body = `Name: ${fname} ${lname}%0AEmail: ${email}%0AService: ${service}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
-      window.location.href = `mailto:info@uibgltd.com?subject=New Inquiry - U%26I Business Group&body=${body}`;
-    }
-  }
+      const body    = `Name: ${fname} ${lname}%0AEmail: ${email}%0AService: ${service}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+      window.location.href = `mailto:info@uibgltd.com?subject=New%20Inquiry%20-%20U%26I%20Business%20Group&body=${body}`;
 
-  /* ── Animated counters ── */
-  function animateCount(el, target, suffix='') {
+      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      submitBtn.disabled  = false;
+    }
+  });
+
+  /* Animated counters (for elements with data-val attribute) */
+  function animateCount(el, target, suffix = '') {
     let start = 0;
     const duration = 2000;
     const step = (timestamp) => {
       if (!start) start = timestamp;
       const progress = Math.min((timestamp - start) / duration, 1);
-      const current = Math.floor(progress * target);
-      el.textContent = current + suffix;
+      el.textContent  = Math.floor(progress * target) + suffix;
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -1501,8 +1427,8 @@
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const el = entry.target;
-        const val = el.dataset.val;
+        const el     = entry.target;
+        const val    = el.dataset.val;
         const suffix = el.dataset.suffix || '';
         animateCount(el, parseInt(val), suffix);
         counterObserver.unobserve(el);
